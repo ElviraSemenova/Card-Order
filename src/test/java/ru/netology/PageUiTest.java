@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class PageUiTest {
+public class PageUiTest {
     WebDriver driver = new ChromeDriver(new ChromeOptions().addArguments("--headless", "--disable-gpu", "--no-sandbox"));
 
     @BeforeAll
