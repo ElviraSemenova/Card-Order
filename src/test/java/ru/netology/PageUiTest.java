@@ -15,7 +15,7 @@ class PageUiTest {
 
     @BeforeAll
     static void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\miko0\\Новая папка\\CardOrder\\artifacts\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "artifacts/chromedriver.exe");
     }
 
     @AfterEach
