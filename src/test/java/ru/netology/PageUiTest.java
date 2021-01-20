@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PageUiTest {
-    WebDriver driver = new ChromeDriver(new ChromeOptions().addArguments("--headless", "--disable-dev-shm-usage"));
+    WebDriver driver = new ChromeDriver(new ChromeOptions().addArguments("--headless", "--disable-gpu"));
 
     @BeforeAll
     static void setUp() {
