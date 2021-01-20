@@ -1,7 +1,9 @@
 package ru.netology;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,19 +13,27 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PageUiTest {
-    WebDriver driver = new ChromeDriver(new ChromeOptions().addArguments("--headless", "--disable-gpu", "--no-sandbox"));
+    private WebDriver driver;
+
+    @BeforeEach
+    public void setUpTest() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
+    }
 
     @BeforeAll
-    static void setUp() {
-        System.setProperty("webdriver.chrome.driver", "artifacts/chromedriver.exe");
+    public static void setupClass() {
+        WebDriverManager.chromedriver().setup();
     }
 
     @AfterEach
-    void down() {
+    public void tearDown() {
         driver.quit();
         driver = null;
     }
-
     @Test
     void shouldTestWithCorrectValues() {
         driver.get("http://localhost:9999");
